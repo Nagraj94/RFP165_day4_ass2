@@ -7,7 +7,11 @@ import java.util.Scanner;
 
 public class UC1 {
 
-    int checkOption;
+    // winning position
+    int WIN_POINT = 100;
+    boolean winningPosition(int playerPosition){
+        return WIN_POINT == playerPosition;
+    }
     Scanner sc = new Scanner(System.in);
     static Map< Integer,Integer > snake = new HashMap< Integer , Integer >();
     static Map < Integer , Integer > ladder = new HashMap< Integer , Integer >();
@@ -47,7 +51,7 @@ public class UC1 {
     }
     int dieRoll()
     {
-        int n = 6;
+        int n = 0;
         Random r = new Random();
         n = r.nextInt(7);
         return (n == 0 ? 1 : n);
@@ -56,7 +60,7 @@ public class UC1 {
     {
         int player1Position = 0;
         int diceValue = 0;
-        String str = "r";
+        String str;
         int currentPlayer = -1;
         do {
             System.out.println("Press 'r' to roll Dice");
@@ -73,6 +77,5 @@ public class UC1 {
     public static void main(String[] args) {
         UC1 uc1 = new UC1();
         uc1.start();
-
     }
 }
